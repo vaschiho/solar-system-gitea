@@ -15,6 +15,21 @@ pipeline{
                 '''
             }
         }
+        stage('Install Dependencies') {
+                steps {
+                    sh '''
+                    npm install --no-audit
+                    '''
+                }
+            }
+    
+            stage('Run Tests') {
+                steps {
+                    sh '''
+                    npm test
+                    '''
+                }
+            }
 
     }
 }
